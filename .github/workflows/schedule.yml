@@ -1,13 +1,18 @@
 name: Schedule Event
 on:
     workflow_dispatch:
-        
+
     schedule:
       - 
         cron: '30 22 * * 6'
 jobs:
   Schedule:
     runs-on: ubuntu-latest
+    env:
+        VERSION: ${{ vars.VERSION }}
+        GUILD_ID: ${{ vars.GUILD_ID }}
+        MEETING_ROOM_ID: ${{ vars.MEETING_ROOM_ID }}
+        DISCORD_TOKEN: ${{ secrets.DISCORD_TOKEN }}
     steps:
         - 
             name: clone
