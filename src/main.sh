@@ -6,9 +6,10 @@ day=$(date +%u -u)
 next_saturday=$(date -d 'next Saturday' +%s -u)
 
 # Set the time to 21:30
-next_saturday_2130=$(date -d @$next_saturday +%Y-%m-%d\ 21:30 -u)
+# It is 12:30 in UTC when it is 21:30 in Japan
+next_saturday_2130=$(date -d @$next_saturday +%Y-%m-%d\ 12:30 -u)
 
-iso8601_time=$(date -d "$next_saturday_2130" -Iseconds)
+iso8601_time=$(date -d "$next_saturday_2130" -Iseconds -u)
 
 base_url="https://discord.com/api"
 endpoint_url="${base_url}/v${VERSION}/guilds/${GUILD_ID}/scheduled-events"
