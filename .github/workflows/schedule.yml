@@ -4,7 +4,7 @@ on:
 
     schedule:
       - 
-        cron: '30 22 * * 6'
+        cron: '30 22 * * 0'
 jobs:
   Schedule:
     runs-on: ubuntu-latest
